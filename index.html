@@ -1,9 +1,9 @@
 <html manifest="offlineCache.manifest">
 	<style>
 		.button {
-		  background-color: #000000;  
+		  background-color: #000f54;  
 		  border-radius: 5px;
-		  color: ;
+		  color: white;
 		  padding: .5em;
 		  text-decoration: none;
 		  height:100%;
@@ -13,14 +13,14 @@
 
 		.button:focus,
 		.button:hover {
-		  background-color: #ff0000;
-		  color: rgb(0, 0, 0);
+		  background-color: #dec272;
+		  color: White;
 		}
 
 		.titlehead {
-		  background-color: ;  
+		  background-color: #000f54;  
 		  border-radius: 5px;
-		  color: rgb(255, 0, 0);
+		  color: white;
 		  padding: .5em;
 		  text-decoration: none;
 		  text-align: center;
@@ -31,8 +31,8 @@
 
 		.titlehead:focus,
 		.titlehead:hover {
-		  background-color: ;
-		  color:;
+		  background-color: #dec272;
+		  color: White;
 		}
 
 		.bg {
@@ -46,7 +46,9 @@
 		}
 
 		#myProgress {
-		  background-color: ;
+		  border: 5px solid #000f54;
+		  border-radius: 5px;
+		  background-color: #dec272;
 		  height: 45px;
 		  position: absolute;
 		  top:0;
@@ -59,10 +61,10 @@
 		#myBar {
 		  width: 0%;
 		  height: 40px;
-		  background-color:;
+		  background-color: #000f54;
 		  text-align: center;
 		  line-height: 30px;
-		  color: purple;
+		  color: white;
 		  font-size: 35px;
 		  padding-top: 5px;
 		}
@@ -87,7 +89,7 @@
 		  left: 0;
 		  right: 0;
 		  bottom: 0;
-		  background-color: purple;
+		  background-color: #dec272;
 		  -webkit-transition: .4s;
 		  transition: .4s;
 		}
@@ -111,7 +113,7 @@
 		  width: 26px;
 		  left: 4px;
 		  bottom: 4px;
-		  background-color:;
+		  background-color: white;
 		  -webkit-transition: .4s;
 		  transition: .4s;
 		}
@@ -141,7 +143,7 @@
 
 	</style>
 	<head>
-		<title>PS4 Jailbreak 7.5X</title>
+		<title>7.5x Self-Host</title>
 	</head>
 	<body onload="go()" class="bg">
 		<script>
@@ -149,9 +151,9 @@
 			if(localStorage.autoExploit==null){localStorage.autoExploit=false;}
 			var fw = (navigator.userAgent.substring(navigator.userAgent.indexOf('5.0 (') + 19, navigator.userAgent.indexOf(') Apple'))).replace('.', '');;
 			if(window.applicationCache.status==2){localStorage.is75XV2Cached=true;}
-			window.applicationCache.ondownloading=function(){document.getElementById("progress").innerHTML="Page Caching Started!!";localStorage.is75XV2Cached=false;};
+			window.applicationCache.ondownloading=function(){document.getElementById("progress").innerHTML="Starting host cache";localStorage.is75XV2Cached=false;};
 			window.applicationCache.onprogress=function(a){document.getElementById("myBar").style.width=(Math.round(100*(a.loaded/a.total)))+"%";document.getElementById("myBar").innerHTML=(Math.round(100*(a.loaded/a.total)))+"%";};
-			window.applicationCache.oncached=function(){document.getElementById("progress").innerHTML="Page Cached Successfully!!";localStorage.is75XV2Cached=true;setTimeout(function(){document.getElementById("progress").innerHTML="Turn Off the Internet & Reopen the Page to Run the Exploit!!"; }, 1500);};
+			window.applicationCache.oncached=function(){document.getElementById("progress").innerHTML="Host has been cached";localStorage.is75XV2Cached=true;setTimeout(function(){document.getElementById("progress").innerHTML="Caching complete. Reload website without internet!"; }, 1500);};
 		</script>
 		<script>
 			var width = 0;
@@ -295,7 +297,7 @@
 		<script src="./webkit/utils.js"></script>
 		<script src="./webkit/int64.js"></script>
 		<script src="./webkit/ps4.js"></script>
-		<h1 id="progress" class="titlehead">Loading.. Please Wait !!</h1><hr><br>
+		<h1 id="progress" class="titlehead">Loading WebKit Exploit</h1><hr><br>
 		<button style="opacity:0" id="input1" onfocus="handle2()"></button>
 		<button style="opacity:0" id="input2"></button>
 		<button style="opacity:0" id="input3" onfocus="handle2()"></button>
